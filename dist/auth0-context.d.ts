@@ -12,7 +12,7 @@ import {
   RedirectLoginOptions as Auth0RedirectLoginOptions,
   RedirectLoginResult,
   User,
-} from '@auth0/auth0-spa-js';
+} from '@twogate/auth0-spa-js';
 import { AuthState } from './auth-state';
 export interface RedirectLoginOptions extends BaseLoginOptions {
   /**

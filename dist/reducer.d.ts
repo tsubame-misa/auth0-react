@@ -1,4 +1,4 @@
-import { User } from '@auth0/auth0-spa-js';
+import { User } from '@twogate/auth0-spa-js';
 import { AuthState } from './auth-state';
 declare type Action =
   | {

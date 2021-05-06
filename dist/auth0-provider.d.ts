@@ -1,5 +1,5 @@
 import React from 'react';
-import { CacheLocation } from '@auth0/auth0-spa-js';
+import { CacheLocation } from '@twogate/auth0-spa-js';
 /**
  * The state of the application before the user was redirected to the login page.
  */

@@ -1,5 +1,5 @@
 import React from 'react';
-import { RedirectLoginOptions, User } from '@auth0/auth0-spa-js';
+import { RedirectLoginOptions, User } from '@twogate/auth0-spa-js';
 /**
  * Options for the withAuthenticationRequired Higher Order Component
  */
