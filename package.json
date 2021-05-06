@@ -99,6 +99,6 @@
     }
   },
   "dependencies": {
-    "@twogate/auth0-spa-js": "github:twogate/auth0-spa-js"
+    "@twogate/auth0-spa-js": "github:tsubame-misa/auth0-spa-js"
   }
 }
