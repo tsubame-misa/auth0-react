@@ -25,5 +25,5 @@ export {
   GetTokenSilentlyOptions,
   IdToken,
   User,
-} from '@auth0/auth0-spa-js';
+} from '@twogate/auth0-spa-js';
 export { OAuthError } from './errors';

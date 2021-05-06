@@ -11,7 +11,7 @@ import {
   RedirectLoginOptions as Auth0RedirectLoginOptions,
   RedirectLoginResult,
   User,
-} from '@auth0/auth0-spa-js';
+} from '@twogate/auth0-spa-js';
 import { createContext } from 'react';
 import { AuthState, initialAuthState } from './auth-state';
 
