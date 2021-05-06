@@ -99,6 +99,6 @@
     }
   },
   "dependencies": {
-    "@auth0/auth0-spa-js": "^1.15.0"
+    "@twogate/auth0-spa-js": "github:twogate/auth0-spa-js"
   }
 }
