@@ -5335,6 +5335,7 @@ var Auth0Provider = function (opts) {
   var _b = useReducer(reducer, initialAuthState),
     state = _b[0],
     dispatch = _b[1];
+  console.log('Auth0Provider');
   useEffect(
     function () {
       (function () {
