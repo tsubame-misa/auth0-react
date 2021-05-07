@@ -16,5 +16,5 @@ export interface AuthState<TUser extends User = User> {
  */
 export const initialAuthState: AuthState = {
   isAuthenticated: true,
-  isLoading: false,
+  isLoading: true,
 };
