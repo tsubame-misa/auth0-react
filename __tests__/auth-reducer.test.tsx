@@ -2,6 +2,7 @@ import { reducer } from '../src/reducer';
 import { initialAuthState } from '../src/auth-state';
 
 describe('reducer', () => {
+  console.log('ここかもしかして！');
   it('should initialise when authenticated', async () => {
     const payload = {
       isAuthenticated: true,
