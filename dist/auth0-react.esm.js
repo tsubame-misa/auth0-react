@@ -5361,6 +5361,11 @@ var Auth0Provider = function (opts) {
               case 1:
                 appState = _a.sent().appState;
                 onRedirectCallback(appState);
+                console.log(
+                  onRedirectCallback(appState),
+                  'appState = ',
+                  appState
+                );
                 return [3 /*break*/, 4];
               case 2:
                 return [4 /*yield*/, client.checkSession()];
