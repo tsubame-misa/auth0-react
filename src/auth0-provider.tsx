@@ -223,6 +223,7 @@ const Auth0Provider = (opts: Auth0ProviderOptions): JSX.Element => {
     () => new Auth0Client(toAuth0ClientOptions(clientOpts))
   );
   const [state, dispatch] = useReducer(reducer, initialAuthState);
+  console.log('Auth0Provider', client, state);
 
   useEffect(() => {
     (async (): Promise<void> => {

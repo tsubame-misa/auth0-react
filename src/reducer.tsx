@@ -28,7 +28,7 @@ export const reducer = (state: AuthState, action: Action): AuthState => {
     case 'INITIALISED':
       return {
         ...state,
-        isAuthenticated: !!action.user,
+        isAuthenticated: true,
         user: action.user,
         isLoading: false,
         error: undefined,
