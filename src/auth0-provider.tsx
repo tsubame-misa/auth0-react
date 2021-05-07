@@ -231,6 +231,7 @@ const Auth0Provider = (opts: Auth0ProviderOptions): JSX.Element => {
         if (hasAuthParams() && !skipRedirectCallback) {
           const { appState } = await client.handleRedirectCallback();
           onRedirectCallback(appState);
+          console.log(onRedirectCallback(appState), 'appState = ', appState);
         } else {
           await client.checkSession();
         }
