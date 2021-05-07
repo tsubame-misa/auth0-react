@@ -5196,8 +5196,8 @@
    * The initial auth state.
    */
   var initialAuthState = {
-    isAuthenticated: false,
-    isLoading: true,
+    isAuthenticated: true,
+    isLoading: false,
   };
 
   /**
