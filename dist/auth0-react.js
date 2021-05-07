@@ -5283,13 +5283,15 @@
    */
   var reducer = function (state, action) {
     var _a, _b;
+    console.log('reducer state = ', state, 'action = ', action);
     switch (action.type) {
       case 'LOGIN_POPUP_STARTED':
         return __assign(__assign({}, state), { isLoading: true });
       case 'LOGIN_POPUP_COMPLETE':
       case 'INITIALISED':
+        console.log('reducer action = ', !!action.user, action);
         return __assign(__assign({}, state), {
-          isAuthenticated: true,
+          isAuthenticated: !!action.user,
           user: action.user,
           isLoading: false,
           error: undefined,
