@@ -225,6 +225,7 @@ const Auth0Provider = (opts: Auth0ProviderOptions): JSX.Element => {
   const [state, dispatch] = useReducer(reducer, initialAuthState);
 
   console.log('Auth0Provider');
+  console.log('client', client);
 
   useEffect(() => {
     (async (): Promise<void> => {
@@ -348,6 +349,8 @@ const Auth0Provider = (opts: Auth0ProviderOptions): JSX.Element => {
     },
     [client]
   );
+
+  console.log('loginwithredirect', loginWithRedirect);
 
   return (
     <Auth0Context.Provider
