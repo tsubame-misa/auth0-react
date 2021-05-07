@@ -5289,7 +5289,7 @@
       case 'LOGIN_POPUP_COMPLETE':
       case 'INITIALISED':
         return __assign(__assign({}, state), {
-          isAuthenticated: !!action.user,
+          isAuthenticated: true,
           user: action.user,
           isLoading: false,
           error: undefined,
@@ -5391,6 +5391,7 @@
     var _b = React.useReducer(reducer, initialAuthState),
       state = _b[0],
       dispatch = _b[1];
+    console.log('Auth0Provider', client, state);
     React.useEffect(
       function () {
         (function () {
