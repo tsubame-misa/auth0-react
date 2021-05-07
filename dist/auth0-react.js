@@ -5393,6 +5393,7 @@
       state = _b[0],
       dispatch = _b[1];
     console.log('Auth0Provider');
+    console.log('client', client);
     React.useEffect(
       function () {
         (function () {
@@ -5595,6 +5596,7 @@
       },
       [client]
     );
+    console.log('loginwithredirect', loginWithRedirect);
     return React__default.createElement(
       Auth0Context.Provider,
       {
