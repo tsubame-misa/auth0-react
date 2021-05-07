@@ -27,6 +27,7 @@ export const reducer = (state: AuthState, action: Action): AuthState => {
       };
     case 'LOGIN_POPUP_COMPLETE':
     case 'INITIALISED':
+      console.log('action.user = ', !!action.user, action);
       return {
         ...state,
         isAuthenticated: !!action.user,
