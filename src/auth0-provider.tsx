@@ -350,7 +350,10 @@ const Auth0Provider = (opts: Auth0ProviderOptions): JSX.Element => {
     [client]
   );
 
-  console.log('loginwithredirect', loginWithRedirect);
+  console.log(
+    'loginwithredirect',
+    client.buildAuthorizeUrl(toAuth0LoginRedirectOptions(opts))
+  );
 
   return (
     <Auth0Context.Provider
