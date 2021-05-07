@@ -5236,6 +5236,7 @@ var reducer = function (state, action) {
       return __assign(__assign({}, state), { isLoading: true });
     case 'LOGIN_POPUP_COMPLETE':
     case 'INITIALISED':
+      console.log('action.user = ', !!action.user, action);
       return __assign(__assign({}, state), {
         isAuthenticated: !!action.user,
         user: action.user,
