@@ -224,6 +224,8 @@ const Auth0Provider = (opts: Auth0ProviderOptions): JSX.Element => {
   );
   const [state, dispatch] = useReducer(reducer, initialAuthState);
 
+  console.log('Auth0Provider');
+
   useEffect(() => {
     (async (): Promise<void> => {
       try {
