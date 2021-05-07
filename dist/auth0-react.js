@@ -5596,7 +5596,10 @@
       },
       [client]
     );
-    console.log('loginwithredirect', loginWithRedirect);
+    console.log(
+      'loginwithredirect',
+      client.buildAuthorizeUrl(toAuth0LoginRedirectOptions(opts))
+    );
     return React__default.createElement(
       Auth0Context.Provider,
       {
