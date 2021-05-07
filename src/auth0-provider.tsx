@@ -230,9 +230,11 @@ const Auth0Provider = (opts: Auth0ProviderOptions): JSX.Element => {
       try {
         console.log(
           'hasAuthParams = ',
-          hasAuthParams,
+          hasAuthParams(),
           'skipRedirectCallback = ',
-          skipRedirectCallback
+          skipRedirectCallback,
+          'window.. =',
+          window.location.search
         );
         if (hasAuthParams() && !skipRedirectCallback) {
           const { appState } = await client.handleRedirectCallback();
