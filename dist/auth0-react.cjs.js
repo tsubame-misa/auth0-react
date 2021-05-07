@@ -4470,6 +4470,7 @@ var fo,
                         p && { organizationId: p }
                       )
                     ),
+                    console.log('buildAuthorizeUrl: url + fragment', I, g),
                     [2, I + g]
                   );
               }
@@ -4621,7 +4622,12 @@ var fo,
                 case 0:
                   return [4, this.buildAuthorizeUrl(e)];
                 case 1:
-                  return (t = n.sent()), window.location.assign(t), [2];
+                  return (
+                    (t = n.sent()),
+                    console.log('loginWithRedirect; url', t),
+                    window.location.assign(t),
+                    [2]
+                  );
               }
             });
           })
