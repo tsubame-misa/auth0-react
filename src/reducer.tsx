@@ -18,6 +18,7 @@ type Action =
  * Handles how that state changes in the `useAuth0` hook.
  */
 export const reducer = (state: AuthState, action: Action): AuthState => {
+  console.log('reducer state = ', state, 'action = ', action);
   switch (action.type) {
     case 'LOGIN_POPUP_STARTED':
       return {
@@ -26,9 +27,10 @@ export const reducer = (state: AuthState, action: Action): AuthState => {
       };
     case 'LOGIN_POPUP_COMPLETE':
     case 'INITIALISED':
+      console.log('reducer action = ', !!action.user, action);
       return {
         ...state,
-        isAuthenticated: true,
+        isAuthenticated: !!action.user,
         user: action.user,
         isLoading: false,
         error: undefined,
