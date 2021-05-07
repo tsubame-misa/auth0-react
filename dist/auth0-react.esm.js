@@ -5228,13 +5228,11 @@ var tokenError = normalizeErrorFn('Get access token failed');
  */
 var reducer = function (state, action) {
   var _a, _b;
-  console.log('reducer, action = ', action);
   switch (action.type) {
     case 'LOGIN_POPUP_STARTED':
       return __assign(__assign({}, state), { isLoading: true });
     case 'LOGIN_POPUP_COMPLETE':
     case 'INITIALISED':
-      console.log('action.user = ', !!action.user, action);
       return __assign(__assign({}, state), {
         isAuthenticated: !!action.user,
         user: action.user,
@@ -5336,8 +5334,6 @@ var Auth0Provider = function (opts) {
   var _b = useReducer(reducer, initialAuthState),
     state = _b[0],
     dispatch = _b[1];
-  console.log('Auth0Provider');
-  console.log('client', client);
   useEffect(
     function () {
       (function () {
@@ -5539,10 +5535,6 @@ var Auth0Provider = function (opts) {
       });
     },
     [client]
-  );
-  console.log(
-    'loginwithredirect',
-    client.buildAuthorizeUrl(toAuth0LoginRedirectOptions(opts))
   );
   return React.createElement(
     Auth0Context.Provider,

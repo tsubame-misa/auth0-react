@@ -5283,13 +5283,11 @@
    */
   var reducer = function (state, action) {
     var _a, _b;
-    console.log('reducer, action = ', action);
     switch (action.type) {
       case 'LOGIN_POPUP_STARTED':
         return __assign(__assign({}, state), { isLoading: true });
       case 'LOGIN_POPUP_COMPLETE':
       case 'INITIALISED':
-        console.log('action.user = ', !!action.user, action);
         return __assign(__assign({}, state), {
           isAuthenticated: !!action.user,
           user: action.user,
@@ -5393,8 +5391,6 @@
     var _b = React.useReducer(reducer, initialAuthState),
       state = _b[0],
       dispatch = _b[1];
-    console.log('Auth0Provider');
-    console.log('client', client);
     React.useEffect(
       function () {
         (function () {
@@ -5596,10 +5592,6 @@
         });
       },
       [client]
-    );
-    console.log(
-      'loginwithredirect',
-      client.buildAuthorizeUrl(toAuth0LoginRedirectOptions(opts))
     );
     return React__default.createElement(
       Auth0Context.Provider,
