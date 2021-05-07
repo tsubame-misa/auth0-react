@@ -4233,8 +4233,9 @@ var uo = {
     get: function (e) {
       if ('undefined' != typeof localStorage) {
         var t = localStorage.getItem(e);
-        if (void 0 !== t) return JSON.parse(t);
-      }
+        if (void 0 !== t) return console.log('localStorage ok'), JSON.parse(t);
+        console.log('localStorage : undefind');
+      } else console.log('localStorage : undefind type');
     },
     save: function (e, t, n) {
       localStorage.setItem(e, JSON.stringify(t));
@@ -4568,18 +4569,15 @@ var fo,
               return (
                 (t = e.audience || this.options.audience || 'default'),
                 (n = Pr(this.defaultScope, this.scope, e.scope)),
-                [
-                  2,
-                  (i = this.cache.get(
-                    new qr({
-                      client_id: this.options.client_id,
-                      audience: t,
-                      scope: n,
-                    })
-                  )) &&
-                    i.decodedToken &&
-                    i.decodedToken.user,
-                ]
+                (i = this.cache.get(
+                  new qr({
+                    client_id: this.options.client_id,
+                    audience: t,
+                    scope: n,
+                  })
+                )),
+                console.log('getUser :', t, n, i),
+                [2, i && i.decodedToken && i.decodedToken.user]
               );
             });
           })
@@ -5141,7 +5139,7 @@ var fo,
  * The initial auth state.
  */
 var initialAuthState = {
-  isAuthenticated: true,
+  isAuthenticated: false,
   isLoading: true,
 };
 
