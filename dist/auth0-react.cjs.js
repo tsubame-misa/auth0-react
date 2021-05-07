@@ -5357,6 +5357,12 @@ var Auth0Provider = function (opts) {
             switch (_a.label) {
               case 0:
                 _a.trys.push([0, 6, , 7]);
+                console.log(
+                  'hasAuthParams = ',
+                  hasAuthParams,
+                  'skipRedirectCallback = ',
+                  skipRedirectCallback
+                );
                 if (!(hasAuthParams() && !skipRedirectCallback))
                   return [3 /*break*/, 2];
                 return [4 /*yield*/, client.handleRedirectCallback()];

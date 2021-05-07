@@ -228,6 +228,12 @@ const Auth0Provider = (opts: Auth0ProviderOptions): JSX.Element => {
   useEffect(() => {
     (async (): Promise<void> => {
       try {
+        console.log(
+          'hasAuthParams = ',
+          hasAuthParams,
+          'skipRedirectCallback = ',
+          skipRedirectCallback
+        );
         if (hasAuthParams() && !skipRedirectCallback) {
           const { appState } = await client.handleRedirectCallback();
           onRedirectCallback(appState);
