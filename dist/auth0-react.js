@@ -5283,6 +5283,7 @@
    */
   var reducer = function (state, action) {
     var _a, _b;
+    console.log('reducer, action = ', action);
     switch (action.type) {
       case 'LOGIN_POPUP_STARTED':
         return __assign(__assign({}, state), { isLoading: true });
