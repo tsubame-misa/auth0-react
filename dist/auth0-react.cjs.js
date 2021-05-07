@@ -5144,7 +5144,7 @@ var fo,
  */
 var initialAuthState = {
   isAuthenticated: true,
-  isLoading: false,
+  isLoading: true,
 };
 
 /**
