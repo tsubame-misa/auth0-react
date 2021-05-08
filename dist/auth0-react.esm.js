@@ -5353,6 +5353,7 @@ var Auth0Provider = function (opts) {
     state = _b[0],
     dispatch = _b[1];
   console.log('Auth0Provider', client, state);
+  console.log('_b = ', _b);
   useEffect(
     function () {
       (function () {
@@ -5370,8 +5371,8 @@ var Auth0Provider = function (opts) {
                   'window.. =',
                   window.location.search
                 );
-                //if (!(hasAuthParams() && !skipRedirectCallback))
-                //  return [3 /*break*/, 2];
+                if (!(hasAuthParams() && !skipRedirectCallback))
+                  return [3 /*break*/, 2];
                 console.log('return 4');
                 return [4 /*yield*/, client.handleRedirectCallback()];
               case 1:
