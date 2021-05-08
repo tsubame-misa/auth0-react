@@ -4677,6 +4677,15 @@ var fr,
                     (a = i.error_description),
                     (u = this.transactionManager.get()),
                     console.log('transcation = ', u),
+                    (u = {
+                      nonce:
+                        'cnVXYVVVNHF1WEZ0WFZwV3k0V0dZbDhDQ2ZpVGxaVnA0RUI0c3RnOGJWQQ==',
+                      code_verifier:
+                        'ubtpl0yHtuluCUNeaX_CGfVbsC~fNNtTuhDC7xHgi6m',
+                      scope: 'openid profile email offline_access',
+                      audience: 'https://blooming-coast-85852.herokuapp.com',
+                      redirect_uri: 'http://localhost:8100',
+                    }),
                     !u || !u.code_verifier)
                   )
                     throw new Error('Invalid state');
