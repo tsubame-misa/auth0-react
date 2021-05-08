@@ -284,6 +284,7 @@ const Auth0Provider = (opts: Auth0ProviderOptions): JSX.Element => {
   const originalCallBack2 = useCallback(
     async (url?: string): Promise<RedirectLoginResult> => {
       try {
+        console.log('url = ', url);
         return await client.handleRedirectCallback(url);
       } catch (error) {
         throw tokenError(error);
