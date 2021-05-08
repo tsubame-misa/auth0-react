@@ -4640,18 +4640,19 @@ var fr,
         );
       }),
       (e.prototype.handleRedirectCallback = function (e) {
-        console.log('handleRedirectCallBack0');
         return (
           void 0 === e && (e = window.location.href),
           o(this, void 0, void 0, function () {
             var t, i, o, c, s, a, u, l, d, g, f;
             return r(this, function (r) {
-              console.log('handleRedirectCallBack1');
+              console.log('handleRedirect1');
+              console.log('e_url = ', e);
               switch (r.label) {
                 case 0:
                   if (
-                    ((t = e.split('?').slice(1)),
-                    console.log('handleRedirectCallBack2'),
+                    (console.log('handleRedirectCallBack_a1'),
+                    (t = e.split('?').slice(1)),
+                    console.log('handleRedirectCallBack_a2'),
                     0 === t.length)
                   )
                     throw new Error(
@@ -4676,7 +4677,9 @@ var fr,
                     (c = i.code),
                     (s = i.error),
                     (a = i.error_description),
-                    !(u = this.transactionManager.get()) || !u.code_verifier)
+                    (u = this.transactionManager.get()),
+                    console.log('transcation = ', u),
+                    !u || !u.code_verifier)
                   )
                     throw new Error('Invalid state');
                   if ((this.transactionManager.remove(), s))
