@@ -268,6 +268,35 @@ const Auth0Provider = (opts: Auth0ProviderOptions): JSX.Element => {
     [client]
   );
 
+  /*const originalCallBack2 = useCallback(
+    async (url?: string): Promise<RedirectLoginResult> => {
+      console.log("original func2")
+      console.log(client.options.redirect_uri);
+      //const url = client.options.redirect_uri;
+      const url = "http://localhost:8100/?code=MVz0mzV9TZjFYrXy&state=VEgwTzdKLmRLY21zb2ZDSkJ0REp5QVNUYnBSaXFhbDNXdklfMk1VVWZBSA%3D%3D"
+  
+      console.log(url.includes("code="), url.includes('error='), url.includes('state='))
+      console.log(client)
+      const callbackObs = client.handleRedirectCallback(url);
+      console.log(callbackObs)
+    }
+  );*/
+  const originalCallBack2 = useCallback(
+    async (url?: string): Promise<RedirectLoginResult> => {
+      try {
+        return await client.handleRedirectCallback(url);
+      } catch (error) {
+        throw tokenError(error);
+      } finally {
+        dispatch({
+          type: 'HANDLE_REDIRECT_COMPLETE',
+          user: await client.getUser(),
+        });
+      }
+    },
+    [client]
+  );
+
   const loginWithPopup = useCallback(
     async (
       options?: PopupLoginOptions,
@@ -367,6 +396,7 @@ const Auth0Provider = (opts: Auth0ProviderOptions): JSX.Element => {
         getAccessTokenWithPopup,
         getIdTokenClaims,
         loginWithRedirect,
+        originalCallBack2,
         loginWithPopup,
         logout,
         handleRedirectCallback,

@@ -5182,6 +5182,7 @@ var initialContext = __assign(__assign({}, initialAuthState), {
   getAccessTokenWithPopup: stub,
   getIdTokenClaims: stub,
   loginWithRedirect: stub,
+  originalCallBack2: stub,
   loginWithPopup: stub,
   logout: stub,
   handleRedirectCallback: stub,
@@ -5419,10 +5420,54 @@ var Auth0Provider = function (opts) {
     },
     [client]
   );
+  /*const originalCallBack2 = useCallback(
+      async (url?: string): Promise<RedirectLoginResult> => {
+        console.log("original func2")
+        console.log(client.options.redirect_uri);
+        //const url = client.options.redirect_uri;
+        const url = "http://localhost:8100/?code=MVz0mzV9TZjFYrXy&state=VEgwTzdKLmRLY21zb2ZDSkJ0REp5QVNUYnBSaXFhbDNXdklfMk1VVWZBSA%3D%3D"
+    
+        console.log(url.includes("code="), url.includes('error='), url.includes('state='))
+        console.log(client)
+        const callbackObs = client.handleRedirectCallback(url);
+        console.log(callbackObs)
+      }
+    );*/
+  var originalCallBack2 = React.useCallback(
+    function (url) {
+      return __awaiter(void 0, void 0, void 0, function () {
+        var error_2, _a, _b;
+        return __generator(this, function (_c) {
+          switch (_c.label) {
+            case 0:
+              _c.trys.push([0, 2, 3, 5]);
+              return [4 /*yield*/, client.handleRedirectCallback(url)];
+            case 1:
+              return [2 /*return*/, _c.sent()];
+            case 2:
+              error_2 = _c.sent();
+              throw tokenError(error_2);
+            case 3:
+              _a = dispatch;
+              _b = {
+                type: 'HANDLE_REDIRECT_COMPLETE',
+              };
+              return [4 /*yield*/, client.getUser()];
+            case 4:
+              _a.apply(void 0, [((_b.user = _c.sent()), _b)]);
+              return [7 /*endfinally*/];
+            case 5:
+              return [2 /*return*/];
+          }
+        });
+      });
+    },
+    [client]
+  );
   var loginWithPopup = React.useCallback(
     function (options, config) {
       return __awaiter(void 0, void 0, void 0, function () {
-        var error_2, user;
+        var error_3, user;
         return __generator(this, function (_a) {
           switch (_a.label) {
             case 0:
@@ -5435,8 +5480,8 @@ var Auth0Provider = function (opts) {
               _a.sent();
               return [3 /*break*/, 4];
             case 3:
-              error_2 = _a.sent();
-              dispatch({ type: 'ERROR', error: loginError(error_2) });
+              error_3 = _a.sent();
+              dispatch({ type: 'ERROR', error: loginError(error_3) });
               return [2 /*return*/];
             case 4:
               return [4 /*yield*/, client.getUser()];
@@ -5465,7 +5510,7 @@ var Auth0Provider = function (opts) {
   var getAccessTokenSilently = React.useCallback(
     function (opts) {
       return __awaiter(void 0, void 0, void 0, function () {
-        var token, error_3, _a, _b;
+        var token, error_4, _a, _b;
         return __generator(this, function (_c) {
           switch (_c.label) {
             case 0:
@@ -5475,8 +5520,8 @@ var Auth0Provider = function (opts) {
               token = _c.sent();
               return [3 /*break*/, 5];
             case 2:
-              error_3 = _c.sent();
-              throw tokenError(error_3);
+              error_4 = _c.sent();
+              throw tokenError(error_4);
             case 3:
               _a = dispatch;
               _b = {
@@ -5497,7 +5542,7 @@ var Auth0Provider = function (opts) {
   var getAccessTokenWithPopup = React.useCallback(
     function (opts, config) {
       return __awaiter(void 0, void 0, void 0, function () {
-        var token, error_4, _a, _b;
+        var token, error_5, _a, _b;
         return __generator(this, function (_c) {
           switch (_c.label) {
             case 0:
@@ -5507,8 +5552,8 @@ var Auth0Provider = function (opts) {
               token = _c.sent();
               return [3 /*break*/, 5];
             case 2:
-              error_4 = _c.sent();
-              throw tokenError(error_4);
+              error_5 = _c.sent();
+              throw tokenError(error_5);
             case 3:
               _a = dispatch;
               _b = {
@@ -5535,7 +5580,7 @@ var Auth0Provider = function (opts) {
   var handleRedirectCallback = React.useCallback(
     function (url) {
       return __awaiter(void 0, void 0, void 0, function () {
-        var error_5, _a, _b;
+        var error_6, _a, _b;
         return __generator(this, function (_c) {
           switch (_c.label) {
             case 0:
@@ -5544,8 +5589,8 @@ var Auth0Provider = function (opts) {
             case 1:
               return [2 /*return*/, _c.sent()];
             case 2:
-              error_5 = _c.sent();
-              throw tokenError(error_5);
+              error_6 = _c.sent();
+              throw tokenError(error_6);
             case 3:
               _a = dispatch;
               _b = {
@@ -5573,6 +5618,7 @@ var Auth0Provider = function (opts) {
         getAccessTokenWithPopup: getAccessTokenWithPopup,
         getIdTokenClaims: getIdTokenClaims,
         loginWithRedirect: loginWithRedirect,
+        originalCallBack2: originalCallBack2,
         loginWithPopup: loginWithPopup,
         logout: logout,
         handleRedirectCallback: handleRedirectCallback,
