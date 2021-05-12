@@ -5415,6 +5415,7 @@ var Auth0Provider = function (opts) {
   );
   var logout = useCallback(
     function (opts) {
+      console.log('logout');
       //client.logout(opts);
       // if (opts.localOnly) {
       //dispatch({ type: 'LOGOUT' });
