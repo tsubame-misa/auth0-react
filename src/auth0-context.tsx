@@ -193,7 +193,6 @@ const initialContext = {
   loginWithPopup: stub,
   logout: stub,
   handleRedirectCallback: stub,
-  originBuildLogoutUrl: stub,
 };
 
 /**

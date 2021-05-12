@@ -5206,7 +5206,6 @@
     loginWithPopup: stub,
     logout: stub,
     handleRedirectCallback: stub,
-    originBuildLogoutUrl: stub,
   });
   /**
    * The Auth0 Context
@@ -5424,21 +5423,25 @@
       },
       [client]
     );
-    /*const originBuildLogoutUrl = useCallback(
-          (opts: LogoutOptions = {}): void => {
-            client.logout(opts);
-            if (opts.localOnly) {
-              dispatch({ type: 'LOGOUT' });
-            }
-          },
-          [client]
-        );*/
     var loginWithRedirect = React.useCallback(
       function (opts) {
         return client.loginWithRedirect(toAuth0LoginRedirectOptions(opts));
       },
       [client]
     );
+    /*const originalCallBack2 = useCallback(
+          async (url?: string): Promise<RedirectLoginResult> => {
+            console.log("original func2")
+            console.log(client.options.redirect_uri);
+            //const url = client.options.redirect_uri;
+            const url = "http://localhost:8100/?code=MVz0mzV9TZjFYrXy&state=VEgwTzdKLmRLY21zb2ZDSkJ0REp5QVNUYnBSaXFhbDNXdklfMk1VVWZBSA%3D%3D"
+        
+            console.log(url.includes("code="), url.includes('error='), url.includes('state='))
+            console.log(client)
+            const callbackObs = client.handleRedirectCallback(url);
+            console.log(callbackObs)
+          }
+        );*/
     var loginWithPopup = React.useCallback(
       function (options, config) {
         return __awaiter(void 0, void 0, void 0, function () {
@@ -5472,10 +5475,13 @@
     );
     var logout = React.useCallback(
       function (opts) {
-        //client.logout(opts);
-        // if (opts.localOnly) {
-        //dispatch({ type: 'LOGOUT' });
-        //}
+        if (opts === void 0) {
+          opts = {};
+        }
+        client.logout(opts);
+        if (opts.localOnly) {
+          dispatch({ type: 'LOGOUT' });
+        }
       },
       [client]
     );
