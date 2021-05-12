@@ -262,6 +262,16 @@ const Auth0Provider = (opts: Auth0ProviderOptions): JSX.Element => {
     [client]
   );
 
+  /*const originBuildLogoutUrl = useCallback(
+    (opts: LogoutOptions = {}): void => {
+      client.logout(opts);
+      if (opts.localOnly) {
+        dispatch({ type: 'LOGOUT' });
+      }
+    },
+    [client]
+  );*/
+
   const loginWithRedirect = useCallback(
     (opts?: RedirectLoginOptions): Promise<void> =>
       client.loginWithRedirect(toAuth0LoginRedirectOptions(opts)),

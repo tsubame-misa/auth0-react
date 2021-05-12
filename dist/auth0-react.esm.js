@@ -4927,23 +4927,16 @@ var fo,
         return this._url('/v2/logout?' + Tr(n)) + r;
       }),
       (e.prototype.logout = function (e) {
-        console.log('in spa logout');
         void 0 === e && (e = {});
         var t = e.localOnly,
           n = i(e, ['localOnly']);
-        if (t && n.federated) {
-          console.log('logout error');
+        if (t && n.federated)
           throw new Error(
             'It is invalid to set both the `federated` and `localOnly` options to `true`'
           );
-        }
-        if (
-          (this.cache.clear(),
-          console.log('chache'),
+        this.cache.clear(),
           this.cookieStorage.remove('auth0.is.authenticated'),
-          !t)
-        )
-          return this.buildLogoutUrl(n);
+          t && console.log('Spa login localonly reuturn');
       }),
       (e.prototype._getTokenFromIFrame = function (e) {
         return r(this, void 0, void 0, function () {
@@ -5167,6 +5160,7 @@ var initialContext = __assign(__assign({}, initialAuthState), {
   loginWithPopup: stub,
   logout: stub,
   handleRedirectCallback: stub,
+  originBuildLogoutUrl: stub,
 });
 /**
  * The Auth0 Context
@@ -5382,6 +5376,15 @@ var Auth0Provider = function (opts) {
     },
     [client]
   );
+  /*const originBuildLogoutUrl = useCallback(
+      (opts: LogoutOptions = {}): void => {
+        client.logout(opts);
+        if (opts.localOnly) {
+          dispatch({ type: 'LOGOUT' });
+        }
+      },
+      [client]
+    );*/
   var loginWithRedirect = useCallback(
     function (opts) {
       return client.loginWithRedirect(toAuth0LoginRedirectOptions(opts));
