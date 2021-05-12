@@ -455,19 +455,19 @@
       return y.call(e).slice(8, -1);
     },
     m = ''.split,
-    v = d(function () {
+    B = d(function () {
       return !Object('z').propertyIsEnumerable(0);
     })
       ? function (e) {
           return 'String' == b(e) ? m.call(e, '') : Object(e);
         }
       : Object,
-    B = function (e) {
+    v = function (e) {
       if (null == e) throw TypeError("Can't call method on " + e);
       return e;
     },
     C = function (e) {
-      return v(B(e));
+      return B(v(e));
     },
     F = function (e) {
       return 'object' == typeof e ? null !== e : 'function' == typeof e;
@@ -690,14 +690,14 @@
       };
     },
     me = { includes: be(!0), indexOf: be(!1) },
-    ve = me.indexOf,
-    Be = function (e, t) {
+    Be = me.indexOf,
+    ve = function (e, t) {
       var n,
         i = C(e),
         r = 0,
         o = [];
       for (n in i) !Z(q, n) && Z(i, n) && o.push(n);
-      for (; t.length > r; ) Z(i, (n = t[r++])) && (~ve(o, n) || o.push(n));
+      for (; t.length > r; ) Z(i, (n = t[r++])) && (~Be(o, n) || o.push(n));
       return o;
     },
     Ce = [
@@ -714,7 +714,7 @@
       f:
         Object.getOwnPropertyNames ||
         function (e) {
-          return Be(e, Fe);
+          return ve(e, Fe);
         },
     },
     Se = { f: Object.getOwnPropertySymbols },
@@ -816,7 +816,7 @@
     { target: 'String', proto: !0, forced: !Me && !Pe },
     {
       startsWith: function (e) {
-        var t = String(B(this));
+        var t = String(v(this));
         Ke(e);
         var n = pe(_e(arguments.length > 1 ? arguments[1] : void 0, t.length)),
           i = String(e);
@@ -866,7 +866,7 @@
           return 'Array' == b(e);
         }),
     ot = function (e) {
-      return Object(B(e));
+      return Object(v(e));
     },
     ct = function (e, t, n) {
       var i = U(t);
@@ -950,8 +950,8 @@
   );
   var mt = {};
   mt[Ye('toStringTag')] = 'z';
-  var vt = '[object z]' === String(mt),
-    Bt = Ye('toStringTag'),
+  var Bt = '[object z]' === String(mt),
+    vt = Ye('toStringTag'),
     Ct =
       'Arguments' ==
       b(
@@ -959,7 +959,7 @@
           return arguments;
         })()
       ),
-    Ft = vt
+    Ft = Bt
       ? b
       : function (e) {
           var t, n, i;
@@ -972,7 +972,7 @@
                 try {
                   return e[t];
                 } catch (e) {}
-              })((t = Object(e)), Bt))
+              })((t = Object(e)), vt))
             ? n
             : Ct
             ? b(t)
@@ -980,17 +980,17 @@
             ? 'Arguments'
             : i;
         },
-    Ut = vt
+    Ut = Bt
       ? {}.toString
       : function () {
           return '[object ' + Ft(this) + ']';
         };
-  vt || se(Object.prototype, 'toString', Ut, { unsafe: !0 });
+  Bt || se(Object.prototype, 'toString', Ut, { unsafe: !0 });
   var St,
     Zt =
       Object.keys ||
       function (e) {
-        return Be(e, Ce);
+        return ve(e, Ce);
       },
     Vt = g
       ? Object.defineProperties
@@ -1088,17 +1088,17 @@
           var g,
             f,
             I = ot(a),
-            p = v(I),
+            p = B(I),
             h = tt(u, l, 3),
             y = pe(p.length),
             b = 0,
             m = d || at,
-            B = t ? m(a, y) : n || c ? m(a, 0) : void 0;
+            v = t ? m(a, y) : n || c ? m(a, 0) : void 0;
           y > b;
           b++
         )
           if ((s || b in p) && ((f = h((g = p[b]), b, I)), e))
-            if (t) B[b] = f;
+            if (t) v[b] = f;
             else if (f)
               switch (e) {
                 case 3:
@@ -1108,16 +1108,16 @@
                 case 6:
                   return b;
                 case 2:
-                  Kt.call(B, g);
+                  Kt.call(v, g);
               }
             else
               switch (e) {
                 case 4:
                   return !1;
                 case 7:
-                  Kt.call(B, g);
+                  Kt.call(v, g);
               }
-        return o ? -1 : i || r ? r : B;
+        return o ? -1 : i || r ? r : v;
       };
     },
     zt = {
@@ -1199,7 +1199,7 @@
     hn = function (e, t) {
       R(e);
       var n = C(t),
-        i = Zt(n).concat(vn(n));
+        i = Zt(n).concat(Bn(n));
       return (
         zt(i, function (t) {
           (g && !yn.call(n, t)) || pn(e, t, n[t]);
@@ -1235,7 +1235,7 @@
         n
       );
     },
-    vn = function (e) {
+    Bn = function (e) {
       var t = e === Mt,
         n = nn(t ? cn : C(e)),
         i = [];
@@ -1276,7 +1276,7 @@
       (J.f = pn),
       (A.f = bn),
       (Ue.f = kt.f = mn),
-      (Se.f = vn),
+      (Se.f = Bn),
       (Ht.f = function (e) {
         return fn(Ye(e), e);
       }),
@@ -1326,7 +1326,7 @@
     ),
     We(
       { target: 'Object', stat: !0, forced: !ke },
-      { getOwnPropertyNames: mn, getOwnPropertySymbols: vn }
+      { getOwnPropertyNames: mn, getOwnPropertySymbols: Bn }
     ),
     We(
       {
@@ -1344,7 +1344,7 @@
     ),
     $t)
   ) {
-    var Bn =
+    var vn =
       !ke ||
       d(function () {
         var e = qt();
@@ -1353,7 +1353,7 @@
         );
       });
     We(
-      { target: 'JSON', stat: !0, forced: Bn },
+      { target: 'JSON', stat: !0, forced: vn },
       {
         stringify: function (e, t, n) {
           for (var i, r = [e], o = 1; arguments.length > o; )
@@ -1436,7 +1436,7 @@
       return function (t, n) {
         var i,
           r,
-          o = String(B(t)),
+          o = String(v(t)),
           c = fe(n),
           s = o.length;
         return c < 0 || c >= s
@@ -1711,8 +1711,8 @@
     yi = hi && hi.prototype,
     bi = l.Uint8ClampedArray,
     mi = bi && bi.prototype,
-    vi = hi && Hn(hi),
-    Bi = yi && Hn(yi),
+    Bi = hi && Hn(hi),
+    vi = yi && Hn(yi),
     Ci = Object.prototype,
     Fi = Ci.isPrototypeOf,
     Ui = Ye('toStringTag'),
@@ -1734,17 +1734,17 @@
     };
   for (fi in Vi) l[fi] || (Zi = !1);
   if (
-    (!Zi || 'function' != typeof vi || vi === Function.prototype) &&
-    ((vi = function () {
+    (!Zi || 'function' != typeof Bi || Bi === Function.prototype) &&
+    ((Bi = function () {
       throw TypeError('Incorrect invocation');
     }),
     Zi)
   )
-    for (fi in Vi) l[fi] && On(l[fi], vi);
-  if ((!Zi || !Bi || Bi === Ci) && ((Bi = vi.prototype), Zi))
-    for (fi in Vi) l[fi] && On(l[fi].prototype, Bi);
-  if ((Zi && Hn(mi) !== Bi && On(mi, Bi), g && !Z(Bi, Ui)))
-    for (fi in (pi(Bi, Ui, {
+    for (fi in Vi) l[fi] && On(l[fi], Bi);
+  if ((!Zi || !vi || vi === Ci) && ((vi = Bi.prototype), Zi))
+    for (fi in Vi) l[fi] && On(l[fi].prototype, vi);
+  if ((Zi && Hn(mi) !== vi && On(mi, vi), g && !Z(vi, Ui)))
+    for (fi in (pi(vi, Ui, {
       get: function () {
         return F(this) ? this[Si] : void 0;
       },
@@ -1757,7 +1757,7 @@
     },
     wi = function (e) {
       if (On) {
-        if (Fi.call(vi, e)) return e;
+        if (Fi.call(Bi, e)) return e;
       } else
         for (var t in Vi)
           if (Z(Vi, fi)) {
@@ -1773,7 +1773,7 @@
             var r = l[i];
             r && Z(r.prototype, e) && delete r.prototype[e];
           }
-        (Bi[e] && !n) || se(Bi, e, n ? t : (Zi && yi[e]) || t);
+        (vi[e] && !n) || se(vi, e, n ? t : (Zi && yi[e]) || t);
       }
     },
     Ai = Ye('species'),
@@ -1845,7 +1845,7 @@
     { target: 'String', proto: !0, forced: !ze('includes') },
     {
       includes: function (e) {
-        return !!~String(B(this)).indexOf(
+        return !!~String(v(this)).indexOf(
           Ke(e),
           arguments.length > 1 ? arguments[1] : void 0
         );
@@ -2380,10 +2380,10 @@
             try {
               i = n(e._value);
             } catch (e) {
-              return void vr(t.promise, e);
+              return void Br(t.promise, e);
             }
             mr(t.promise, i);
-          } else (1 === e._state ? mr : vr)(t.promise, e._value);
+          } else (1 === e._state ? mr : Br)(t.promise, e._value);
         }))
       : e._deferreds.push(t);
   }
@@ -2393,7 +2393,7 @@
         throw new TypeError('A promise cannot be resolved with itself.');
       if (t && ('object' == typeof t || 'function' == typeof t)) {
         var n = t.then;
-        if (t instanceof yr) return (e._state = 3), (e._value = t), void Br(e);
+        if (t instanceof yr) return (e._state = 3), (e._value = t), void vr(e);
         if ('function' == typeof n)
           return void Fr(
             ((i = n),
@@ -2404,16 +2404,16 @@
             e
           );
       }
-      (e._state = 1), (e._value = t), Br(e);
+      (e._state = 1), (e._value = t), vr(e);
     } catch (t) {
-      vr(e, t);
+      Br(e, t);
     }
     var i, r;
   }
-  function vr(e, t) {
-    (e._state = 2), (e._value = t), Br(e);
+  function Br(e, t) {
+    (e._state = 2), (e._value = t), vr(e);
   }
-  function Br(e) {
+  function vr(e) {
     2 === e._state &&
       0 === e._deferreds.length &&
       yr._immediateFn(function () {
@@ -2435,12 +2435,12 @@
           n || ((n = !0), mr(t, e));
         },
         function (e) {
-          n || ((n = !0), vr(t, e));
+          n || ((n = !0), Br(t, e));
         }
       );
     } catch (e) {
       if (n) return;
-      (n = !0), vr(t, e);
+      (n = !0), Br(t, e);
     }
   }
   (yr.prototype.catch = function (e) {
@@ -4317,7 +4317,7 @@
       }),
     bo = {},
     mo = new Zr(),
-    vo = {
+    Bo = {
       memory: function () {
         return new io().enclosedCache;
       },
@@ -4325,8 +4325,8 @@
         return new no();
       },
     },
-    Bo = function (e) {
-      return vo[e];
+    vo = function (e) {
+      return Bo[e];
     },
     Co = function () {
       return !/Trident.*rv:11\.0/.test(navigator.userAgent);
@@ -4350,7 +4350,7 @@
           (this.cacheLocation = e.cacheLocation || 'memory'),
           (this.cookieStorage = lo),
           (this.sessionCheckExpiryDays = e.sessionCheckExpiryDays || 1),
-          !Bo(this.cacheLocation))
+          !vo(this.cacheLocation))
         )
           throw new Error(
             'Invalid cache location "' + this.cacheLocation + '"'
@@ -4358,7 +4358,7 @@
         var r,
           o,
           c = e.useCookiesForTransactions ? this.cookieStorage : uo;
-        (this.cache = Bo(this.cacheLocation)()),
+        (this.cache = vo(this.cacheLocation)()),
           (this.scope = this.options.scope),
           (this.transactionManager = new ro(c)),
           (this.domainUrl = 'https://' + this.options.domain),
@@ -4980,18 +4980,7 @@
             r = t ? '&federated' : '';
           return this._url('/v2/logout?' + Tr(n)) + r;
         }),
-        (e.prototype.logout = function (e) {
-          void 0 === e && (e = {});
-          var t = e.localOnly,
-            n = i(e, ['localOnly']);
-          if (t && n.federated)
-            throw new Error(
-              'It is invalid to set both the `federated` and `localOnly` options to `true`'
-            );
-          this.cache.clear(),
-            this.cookieStorage.remove('auth0.is.authenticated'),
-            t && console.log('Spa login localonly reuturn');
-        }),
+        (e.prototype.logout = function (e) {}),
         (e.prototype._getTokenFromIFrame = function (e) {
           return r(this, void 0, void 0, function () {
             var t, r, c, s, a, u, l, d, g, f, I, p, h, y, b;
