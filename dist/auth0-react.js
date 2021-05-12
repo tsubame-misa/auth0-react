@@ -5474,7 +5474,7 @@
       function (opts) {
         //client.logout(opts);
         // if (opts.localOnly) {
-        dispatch({ type: 'LOGOUT' });
+        //dispatch({ type: 'LOGOUT' });
         //}
       },
       [client]

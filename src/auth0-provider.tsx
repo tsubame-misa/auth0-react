@@ -300,7 +300,7 @@ const Auth0Provider = (opts: Auth0ProviderOptions): JSX.Element => {
     (opts: LogoutOptions = {}): void => {
       //client.logout(opts);
       // if (opts.localOnly) {
-      dispatch({ type: 'LOGOUT' });
+      //dispatch({ type: 'LOGOUT' });
       //}
     },
     [client]

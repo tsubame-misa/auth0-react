@@ -5419,7 +5419,7 @@ var Auth0Provider = function (opts) {
     function (opts) {
       //client.logout(opts);
       // if (opts.localOnly) {
-      dispatch({ type: 'LOGOUT' });
+      //dispatch({ type: 'LOGOUT' });
       //}
     },
     [client]
