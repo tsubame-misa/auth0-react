@@ -97,7 +97,6 @@ export interface Auth0ContextInterface<TUser extends User = User>
    * parameters will be auto-generated.
    */
   loginWithRedirect: (options?: RedirectLoginOptions) => Promise<void>;
-  originalCallBack2: (url?: string) => Promise<RedirectLoginResult>;
   /**
    * ```js
    * await loginWithPopup(options, config);
