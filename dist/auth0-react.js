@@ -4972,7 +4972,9 @@
           void 0 === e && (e = {}),
             null !== e.client_id
               ? (e.client_id = e.client_id || this.options.client_id)
-              : delete e.client_id;
+              : delete e.client_id,
+            this.cache.clear(),
+            this.cookieStorage.remove('auth0.is.authenticated');
           var t = e.federated,
             n = i(e, ['federated']),
             r = t ? '&federated' : '';
@@ -5484,7 +5486,7 @@
         if (opts === void 0) {
           opts = {};
         }
-        client.logout(opts);
+        //client.logout(opts);
         if (opts.localOnly) {
           dispatch({ type: 'LOGOUT' });
         }

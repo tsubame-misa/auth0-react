@@ -298,7 +298,7 @@ const Auth0Provider = (opts: Auth0ProviderOptions): JSX.Element => {
 
   const logout = useCallback(
     (opts: LogoutOptions = {}): void => {
-      client.logout(opts);
+      //client.logout(opts);
       if (opts.localOnly) {
         dispatch({ type: 'LOGOUT' });
       }
