@@ -5426,13 +5426,10 @@ var Auth0Provider = function (opts) {
   );
   var logout = useCallback(
     function (opts) {
-      if (opts === void 0) {
-        opts = {};
-      }
       //client.logout(opts);
-      if (opts.localOnly) {
-        dispatch({ type: 'LOGOUT' });
-      }
+      // if (opts.localOnly) {
+      dispatch({ type: 'LOGOUT' });
+      //}
     },
     [client]
   );
